@@ -2,7 +2,14 @@
 
 class ProductController {
   async index(req, res) {
-    const products = await _Product2.default.find();
+    const {page, perPage} = req.query;
+
+    const options = {
+      page: parseInt(page, 10),
+      limit: parseInt(perPage, 10)
+    }
+
+    const products = await _Product2.default.paginate({}, options);
 
     return res.json(products);
   }

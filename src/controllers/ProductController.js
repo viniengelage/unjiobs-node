@@ -2,7 +2,14 @@ import Product from "../models/Product";
 
 class ProductController {
   async index(req, res) {
-    const products = await Product.find();
+    const {page, perPage} = req.query;
+
+    const options = {
+      page: parseInt(page, 10),
+      limit: parseInt(perPage, 10)
+    }
+
+    const products = await Product.paginate({}, options);
 
     return res.json(products);
   }
