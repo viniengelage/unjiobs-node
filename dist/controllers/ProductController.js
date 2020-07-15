@@ -7,6 +7,19 @@ class ProductController {
     return res.json(products);
   }
 
+  async categorie(req, res) {
+    const {page, perPage} = req.query;
+
+    const options = {
+      page: parseInt(page, 10),
+      limit: parseInt(perPage, 10)
+    }
+
+    const products = await _Product2.default.paginate({type: req.params.type}, options);
+
+    return res.json(products);
+  }
+
   async show(req, res) {
     const { id } = req.params;
     const product = await _Product2.default.findById(id);

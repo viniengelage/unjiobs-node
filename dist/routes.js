@@ -7,6 +7,7 @@ const routes = _express.Router.call(void 0, );
 /* Tasks */
 routes.get("/items", _ProductController2.default.index);
 routes.get("/items/:id", _ProductController2.default.show);
+routes.get("/categories/:type", _ProductController2.default.categorie);
 routes.post("/items", _ProductController2.default.store);
 routes.put("/items/:id", _ProductController2.default.update);
 routes.delete("/items/:id", _ProductController2.default.destroy);
