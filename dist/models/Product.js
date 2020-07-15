@@ -18,7 +18,7 @@ const ProductSchema = new (0, _mongoose.Schema)({
     required: true
   },
   image: {
-    type: String,
+    type: Array,
     required: true
   },
   name: {
