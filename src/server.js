@@ -9,14 +9,9 @@ import routes from './routes';
 
 const app = express();
 
+app.use(cors({origin: 'https://brave-golick-aabecb.netlify.app/'}));
 app.use(express.json());
 app.use(routes);
-app.use(cors({origin: true}));
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 mongoose.connect(databaseConfig.uri, {
     useUnifiedTopology: true,
