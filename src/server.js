@@ -9,7 +9,7 @@ import routes from './routes';
 
 const app = express();
 
-app.use(cors({origin: 'https://brave-golick-aabecb.netlify.app'}));
+app.use(cors({origin: 'http://unijobs.uniamerica.br'}));
 app.use(express.json());
 app.use(routes);
 
